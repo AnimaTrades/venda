@@ -1,0 +1,99 @@
+{
+  "name": "animatrades",
+  "version": "0.0.1",
+  "description": "Projeto Anima Trade",
+  "homepage": "https://animatrades.github.io/anima-trades/",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --open --watch --display-error-details --config ./config/webpack.dev --mode development",
+    "build": "./node_modules/.bin/rimraf dist && webpack --config ./config/webpack.prod --mode production --mock=false",
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "deploy": "yarn build && ./node_modules/.bin/gh-pages -d dist",
+    "test": "jest --coverage --passWithNoTests",
+    "test:tdd": "jest --watchAll",
+    "test:husky": "jest --passWithNoTests",
+    "eslint": "eslint src/**/*.js --fix"
+  },
+  "author": "Luis Paulo Morais Cardoso",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.13",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/runtime": "^7.9.2",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^26.2.2",
+    "babel-loader": "^8.0.6",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^3.1.0",
+    "core-js": "^3.5.0",
+    "css-loader": "^3.4.0",
+    "cssom": "^0.4.4",
+    "docdash": "^1.1.0",
+    "dotenv-webpack": "^1.5.7",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^5.0.2",
+    "gh-pages": "^3.2.3",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "import-sort": "^6.0.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jest": "^26.2.2",
+    "jest-junit": "^11.1.0",
+    "jsdoc": "^3.6.1",
+    "jsdom": "^16.2.1",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "pngjs": "^5.0.0",
+    "postcss-cli": "^6.1.3",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.4.1",
+    "resolve-url-loader": "^3.1.1",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "string-replace-loader": "^2.1.1",
+    "style-loader": "^1.1.4",
+    "svgo": "^1.3.2",
+    "svgo-loader": "^2.2.1",
+    "terser-webpack-plugin": "^2.3.1",
+    "text-replace-html-webpack-plugin": "^1.0.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.0",
+    "webpack-merge": "^4.1.3"
+  },
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "npm run test:husky",
+      "git add"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": "> 25%, IE 10, not ie <= 8"
+}

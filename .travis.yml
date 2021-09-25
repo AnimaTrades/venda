@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- 14
+cache:
+  yarn: true
+  directories:
+  - node_modules
+  - .cache
+
+script:
+  - yarn build
+  
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  local_dir: dist
+  on:
+    branch: master
+env:
+  global:
+    secure: QqFN0svnSJ2mcvi38v6EV5//mwtyqS2Z+I7BVne2hT4AywrWLla1H33ZX3WoHCQifmOqR3uAwhmsY3Sxoao1TasKCekxKVmyL2qz5NfLcUWk+8djXyO4wfptcZtHBMXNwwu/agzLwKFC7JEWfczHN5Y5UWfSNIUHLNSjpN4tExgMgJPfiO/mWePzhoX4NkJKSSdmzEtgb/mcAYVj2whdvF4cupL7nh9CY6ly+oiVG4LjHnJBYdQ9/plQbAYHmuz/wM8y1gQV310zVxf4BngvmZYBBHNJhZF/D9HiVNvDMvNMENNDaLNcfHhKapSK2aR5+oPIcxqr9KEdu3o+h1VIb7k0ofe5zJbBISgDqgXkvRGrcjYCOUqL9etXulxk4oL8vlrnHzIEkJM5KwQP9aNw7Il3daibEGWtSkaxcIRe2Q7n9R/FgR2dIT4oPu1PgzqSdOOuj4XndW9r45Jvxk38lbrEDjBXlM9JLdzVkMngarmG3Vsb1xgUiAFoPN7hnWBD9FggTBmFgh5Af2xu1Oqb56nunbxn9mr4R3rK2efOvZPgOQwFEVPO9aJuyJsdgGP05m6eOAt3bGgVY/wBpRoPRBmqrFac60OCh+qbJ73ExwBGK/ZT7uF0MiqNAjmJ+nrfQKnYMJY0kJGgYd56Txo28DSFJOeKianleYBPvoAik7Q=
