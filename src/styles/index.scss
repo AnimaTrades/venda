@@ -79,7 +79,7 @@ header {
   position: relative;
 
   .content {
-    min-height: 80vh;
+    min-height: 95vh;
     color: #fff;
     z-index: 2;
     text-align: center;
@@ -98,6 +98,7 @@ header {
     }
 
     @media screen and (min-width: 768px) {
+      min-height: 80vh;
       h1 {
         font-size: 48px;
       }
